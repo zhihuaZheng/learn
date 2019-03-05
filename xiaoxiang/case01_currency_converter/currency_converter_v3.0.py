@@ -11,7 +11,7 @@
 rmb_vs_usd = 6.77
 # 标志，用来计算循环次数（测试使用）
 # flag = 0
-currency_str = input('请输入金额(输入Q结束)：')
+currency_str = input('请输入带单位的货币金额(输入Q结束)：')
 while currency_str != 'Q':
     # 测试使用
     # flag = flag + 1
@@ -20,14 +20,16 @@ while currency_str != 'Q':
     if currency_unit == 'CNY':
         # 获得输入金额的数值
         rmb_str = currency_str[:-3]
+        # 将字符串转换为数字
         rmb_value = eval(rmb_str)
         # 计算美元金额
         usd_value = rmb_value / rmb_vs_usd
         print('美元金额（USD）：', usd_value)
 
     elif currency_unit == 'USD':
-        # 获得输入金额的单位
+        # 获得输入金额的数值
         usd_str = currency_str[:-3]
+        # 将字符串转换为数字
         usd_value = eval(usd_str)
         # 计算人民币金额
         rmb_value = usd_value * rmb_vs_usd
@@ -36,6 +38,6 @@ while currency_str != 'Q':
         print('暂时不支持人民币（CNY）以及美元（USD）之外的货币')
     # 为了让交互界面稍微美观点，添加-----
     print('-------------------------------------------')
-    currency_str = input('请输入金额(输入Q结束)：')
+    currency_str = input('请输入带单位的货币金额(输入Q结束)：')
 # 完善交互界面
-print('程序结束！')
+print('程序已退出！')

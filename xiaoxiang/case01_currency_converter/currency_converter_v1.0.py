@@ -6,7 +6,7 @@
 """
 # 输入人民币
 rmb_str_value = input('请输入人民币（CYN）金额：')
-# 获得输入的数值
+# 将字符串转换为数字
 rmb_num_value = eval(rmb_str_value)
 # 人民币和美元的汇率
 rmb_vs_usd = 6.77

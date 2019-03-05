@@ -13,7 +13,7 @@
 
 def main():
     # 人民币转美元汇率
-    cny_vs_usd = 6.77
+    CNY_VS_USD = 6.77
 
     # 标志，用来计算循环次数（测试使用）
     # flag = 0
@@ -24,9 +24,9 @@ def main():
         # print('循环第', flag, '次')
         unit = currency_str[-3:]       # 获得输入金额的单位
         if unit == 'CNY':
-            exchange_rate = 1 / cny_vs_usd
+            exchange_rate = 1 / CNY_VS_USD
         elif unit == 'USD':
-            exchange_rate = cny_vs_usd
+            exchange_rate = CNY_VS_USD
         else:
             exchange_rate = -1
         if exchange_rate != -1:
@@ -34,7 +34,10 @@ def main():
             in_money_value = eval(in_money)
             converter = lambda im, rate: im * rate      # pep8不建议编写lambda函数
             out_money = converter(in_money_value, exchange_rate)
-            print('转换后的金额：', out_money)     # 缺陷：无法转换后输出相应的单位
+            if exchange_rate == 1 / CNY_VS_USD:
+                print('转换后的金额:{}USD'.format(out_money))
+            elif exchange_rate == CNY_VS_USD:
+                print('转换后的金额：{}CNY'.format(out_money))
         else:
             print('暂不支持该货币')
         # 为了让交互界面稍微美观点，添加-----
